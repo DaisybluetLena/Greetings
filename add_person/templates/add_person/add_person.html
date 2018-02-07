@@ -5,9 +5,14 @@
 {% block body %}
 
 <form action="/add_person/" method="post">
+    <h1 class="divform">Add contact</h1>
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Sent">
+    <div class = "divform">
+        <table>
+            {{ form }}
+        </table>
+    <input class="button" type="submit" value="Sent">
+    </div>
 </form>
 
 {% endblock %}

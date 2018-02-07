@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <!-- Для того чтобы использовать статические файлы, нужно добавить эту команду -->
-{#    {% load staticfiles %}#}
+    {% load staticfiles %}
     <!-- Загрузка style.css из папки static/add_person/ -->
-{#    <link rel="stylesheet" type="text/css" href="{% static 'add_person/style.css' %}"/>#}
+    <link rel="stylesheet" type="text/css" href="{% static 'add_person/style.css' %}"/>
 </head>
 <body>
 
