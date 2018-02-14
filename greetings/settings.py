@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'add_person',
+    'contact',
 ]
 
 # CELERY STUFF

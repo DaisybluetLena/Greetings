@@ -1,0 +1,19 @@
+{% extends 'contact/base.html' %}
+
+{% block menu %}{% include 'contact/menu-top.html' %}{% endblock %}
+{% block title %}Change contact{% endblock %}
+
+{% block body %}
+
+<form action="{% url 'contact:change' person_update.id %}" method="post">
+    <h1 class="divform">Change contact</h1>
+    {% csrf_token %}
+    <div class = "divform">
+        <table>
+            {{ form }}
+        </table>
+    <input class="button" type="submit" value="Change">
+    </div>
+</form>
+
+{% endblock %}
