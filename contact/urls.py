@@ -5,6 +5,7 @@ app_name = 'contact'
 
 urlpatterns = [
     url(r'^$', views.hello, name='hello'),
+    url(r'^registration$', views.CreateUserView.as_view(), name='registration'),
     url(r'^changed/$', views.changed, name='changed'),
     url(r'^add/$', views.AddPersonView.as_view(), name='add'),
     url(r'^change/(?P<pk>\d+)/$', views.AddPersonUpdate.as_view(), name='change'),

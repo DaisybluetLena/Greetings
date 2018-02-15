@@ -1,9 +1,11 @@
 {% extends 'contact/base.html' %}
 
-{% block title %}Contact added{% endblock %}
+{% block title %}Hello in greeting app{% endblock %}
 
 {% block body %}
 
-    <h1>Hello</h1>
+    <h1>You are welcome by Greetings Application</h1>
+    <p><input type="button" value="Registration" onclick="location.href='{% url 'contact:registration' %}'"</p>
+    <p><input type="button" value="Log in" ></p>
 
 {% endblock %}

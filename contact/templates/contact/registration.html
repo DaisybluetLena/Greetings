@@ -1,0 +1,18 @@
+{% extends 'contact/base.html' %}
+
+{% block title %}Hello by greeting app{% endblock %}
+
+{% block body %}
+
+<form action="{% url 'contact:registration' %}" method="post">
+    <h1 class="divform">Registration</h1>
+    {% csrf_token %}
+    <div class = "divform">
+        <table>
+            {{ form }}
+        </table>
+    <input class="button" type="submit" value="Register">
+    </div>
+</form>
+
+{% endblock %}

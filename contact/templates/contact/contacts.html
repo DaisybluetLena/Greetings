@@ -1,21 +1,8 @@
 {% extends 'contact/base.html' %}
 
-{% block menu %}{% include 'contact/menu-top.html' %}{% endblock %}
 {% block title %}Persons{% endblock %}
 
 {% block body %}
-
-
-{#    <ul>#}
-{#    <select>#}
-{#        {% for person in object_list %}#}
-{#            <option>#}
-{#            {{ person.first_name }} {{ person.last_name }} ({{ person.email }})#}
-{#            </option>#}
-{##}
-{#    {% endfor %}#}
-{#    </select>#}
-
 
 <div class="container-fluid">
   <h2>Contacts</h2>
@@ -36,8 +23,8 @@
         <td>{{ contact.first_name }}</td>
         <td>{{ contact.last_name }}</td>
         <td>{{ contact.email }}</td>
-        <td> <p><input type="button" value="Show detail view" onclick="javascript:document.location.href='http://localhost:8000/contact/detail_view/{{ contact.pk }}'"</p> </td>
-        <td> <p><input type="button" value="Change contact's data" onclick="javascript:document.location.href='http://localhost:8000/contact/change/{{ contact.pk }}'"</p> </td>
+        <td> <p><input type="button" value="Show detail view" onclick="location.href='{% url 'contact:detail_view' contact.pk %}'" ></p> </td>
+        <td> <p><input type="button" value="Change contact's data" onclick="location.href='{% url 'contact:change' contact.pk %}'"></p> </td>
 
       </tr>
     {% endfor %}

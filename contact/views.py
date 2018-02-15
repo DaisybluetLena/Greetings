@@ -3,12 +3,13 @@ from django.urls import reverse_lazy
 from django.shortcuts import render, redirect, render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic.edit import FormView, ModelFormMixin
-from contact.models import AddPersonForm, AddPerson, UpdatePersonForm
+from contact.models import AddPersonForm, AddPerson, CreateUserForm, ContactUser
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
 
 
 def thanks(request):
@@ -59,6 +60,28 @@ class PersonDetailView(DetailView):
     template_name = 'contact/detail_view.html'
 
 
+# def hello(request):
+#     if request.method == 'POST':
+#         f = UserCreationForm(request.POST)
+#         if f.is_valid():
+#             f.save()
+#             # messages.success(request, 'Account created successfully')
+#             return HttpResponseRedirect('/contact/thanks')
+#
+#     else:
+#         f = UserCreationForm()
+#
+#     return render(request, 'contact/hello.html', {'form': f})
+
+
+class CreateUserView(CreateView):
+    model = ContactUser
+    form_class = CreateUserForm
+    template_name = 'contact/registration.html'
+
+    def form_valid(self, form):
+        form.save()
+        return HttpResponseRedirect('/contact/thanks')
 
 #рабочий вариант
 
