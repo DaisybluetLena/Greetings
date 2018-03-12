@@ -11,7 +11,7 @@
 <p>Date of birth: {{ detail_view_object.date_of_birth }}</p>
 <p>Email: {{ detail_view_object.email}}</p>
 
-<p><input type="button" value="Change data" onclick="location.href='{% url 'contact:change' detail_view_object.pk %}'"<p>
+<p><input type="button" value="Change data" onclick="location.href='{% url 'contact:change' detail_view_object.pk %}'"> <p>
 
 
 {% endblock %}

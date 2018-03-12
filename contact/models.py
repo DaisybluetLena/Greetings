@@ -1,10 +1,13 @@
 from django.db import models
 from django.forms import ModelForm
 from datetime import datetime
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 import random
 import smtplib
+
+# def default_user():
+#     return ContactUser.objects.get(id=1)
 
 
 GENDER_CHOICES = (('m', 'Male'), ('f', 'Female'))
@@ -19,7 +22,7 @@ class AddPerson(models.Model):
     email = models.EmailField(blank=False)
     gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default=DEFAULT_GENDER_CHOICES)
     automatic_greeting = models.BooleanField(default=DEFAULT_L)
-    user = models.ForeignKey('ContactUser', on_delete='DO_NOTHING')
+    user = models.ForeignKey('ContactUser', on_delete='DO_NOTHING', null=True, default=1)
 
 
 class AddPersonForm(ModelForm):
@@ -31,12 +34,20 @@ class AddPersonForm(ModelForm):
 class ContactUser(User):
     pass
 
+
 class CreateUserForm(UserCreationForm):
-# class CreateUserForm(ModelForm):
     class Meta:
         model = ContactUser
         fields = ['username', 'first_name', 'last_name', 'email']
 
+
+class LogInForm(AuthenticationForm):
+    # def __init__(self, *args, **kwargs):
+    #     self.request = kwargs.pop('request', None)
+    #     super().__init__(*args, **kwargs)
+    class Meta:
+        model = ContactUser
+        fields = ['username', 'password']
 
 
 

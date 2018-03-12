@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
-  <a class="navbar-brand" href="#">Greetings</a>
+  <a class="navbar-brand" href="{% url 'contact:hello' %}">Greetings</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
@@ -12,6 +12,9 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Add data of greeting</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contact:login' %}">Login</a>
     </li>
   </ul>
 </nav>

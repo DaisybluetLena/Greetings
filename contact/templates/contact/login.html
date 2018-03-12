@@ -1,0 +1,18 @@
+{% extends 'contact/base.html' %}
+
+{% block title %}Add contact{% endblock %}
+
+{% block body %}
+
+<form action="{% url 'contact:login' %}" method="post">
+    <h1 class="divform">Log in</h1>
+    {% csrf_token %}
+    <div class = "divform">
+        <table>
+            {{ form }}
+        </table>
+    <input class="button" type="submit" value="Log In">
+    </div>
+</form>
+
+{% endblock %}

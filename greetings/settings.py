@@ -138,3 +138,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+
+
+APPEND_SLASH = False
+# APPEND_SLASH = True
+# url(r'^accounts/login/', 'django.contrib.auth.views.login')
